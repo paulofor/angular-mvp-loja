@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent  implements OnInit {
+
+  tituloValor1 = 'Exibir Produtos';
+  tituloValor2 = 'Receber Pedidos'
+
   title = 'app';
 
   ngOnInit() {
