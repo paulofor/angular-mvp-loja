@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog} from '@angular/material';
+import { LoginComponent } from './login/login.component';
 
 @Component({
   selector: 'app-root',
@@ -12,11 +14,26 @@ export class AppComponent  implements OnInit {
 
   title = 'app';
 
+  constructor(public dialog: MatDialog) {}
+
   ngOnInit() {
     console.log('Ola Mundo');
   }
 
   exibeItem() {
     console.log('Exibe Item');
+  }
+
+  openDialog(): void {
+    console.log('Tentando abrir tela');
+    let dialogRef = this.dialog.open(LoginComponent, {
+      width: '250px',
+      //data: { name: this.name, animal: this.animal }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      //this.animal = result;
+    });
   }
 }
