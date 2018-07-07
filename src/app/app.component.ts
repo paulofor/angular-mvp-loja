@@ -27,7 +27,7 @@ export class AppComponent  implements OnInit {
   openDialog(): void {
     console.log('Tentando abrir tela');
     let dialogRef = this.dialog.open(LoginComponent, {
-      width: '350px', height: '300px'
+      width: '350px', height: '350px'
       //data: { name: this.name, animal: this.animal }
     });
 

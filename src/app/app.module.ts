@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { LoginComponent } from './login/login.component';
-import { MatFormFieldModule, MatInputModule, MatToolbarModule, MatDialogModule } from '@angular/material';
+import { MatFormFieldModule, MatInputModule, MatToolbarModule, MatDialogModule, MatButtonModule } from '@angular/material';
 
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
@@ -21,8 +21,10 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
     NoopAnimationsModule,
     MatToolbarModule,
     MatFormFieldModule,
-    MatInputModule
-
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent],

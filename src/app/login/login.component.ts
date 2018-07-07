@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import { Cliente } from '../shared/sdk';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Cliente, ClienteApi } from '../shared/sdk';
 
 
 @Component({
@@ -10,18 +10,28 @@ import { Cliente } from '../shared/sdk';
 })
 export class LoginComponent implements OnInit {
 
-  cliente : Cliente;  
+  cliente: Cliente;
 
   ngOnInit() {
+    this.cliente = new Cliente();
   }
 
 
   constructor(public dialogRef: MatDialogRef<LoginComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { 
+              private clienteSrv: ClienteApi,
+    @Inject(MAT_DIALOG_DATA) public data: any) {
 
   }
-  
-  onNoClick(): void {
+
+  onSubmit() {
+    console.log("User: ", this.cliente);
     this.dialogRef.close();
+  }
+
+  verificaLogin() {
+    this.clienteSrv.findOne({"where" : {"login" : this.cliente.login }})
+      .subscribe((item:Cliente) => {
+        console.log('Cliente: ' , item);
+      })
   }
 }
