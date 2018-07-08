@@ -7,7 +7,18 @@ import { PrincipalComponent } from './principal/principal.component';
 import { LoginComponent } from './login/login.component';
 import { MatFormFieldModule, MatInputModule, MatToolbarModule, MatDialogModule, MatButtonModule } from '@angular/material';
 
+import { HttpClient, HttpResponse, HttpClientModule, HttpHandler } from '@angular/common/http';
+import { SocketConnection } from './shared/sdk/sockets/socket.connections';
+import { SocketDriver } from './shared/sdk/sockets/socket.driver';
+import { SDKModels } from './shared/sdk/services/custom/SDKModels';
+import { LoopBackAuth } from './shared/sdk/services/core/auth.service';
+import { InternalStorage } from './shared/sdk/storage/storage.swaps';
+
+
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { ClienteApi, ProdutoApi, ItemPedidoApi, PedidoApi } from './shared/sdk';
+import { RouterModule, Routes } from '@angular/router';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,9 +35,22 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule ,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    ClienteApi,
+    ProdutoApi,
+    PedidoApi,
+    ItemPedidoApi,
+    HttpClient, 
+    SocketConnection  , 
+    SocketDriver,
+    SDKModels,
+    LoopBackAuth,
+    InternalStorage
+  ],
   bootstrap: [AppComponent],
   entryComponents: [LoginComponent]
 })

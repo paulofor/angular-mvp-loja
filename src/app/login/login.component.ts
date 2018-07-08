@@ -25,13 +25,28 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     console.log("User: ", this.cliente);
-    this.dialogRef.close();
+    this.verificaLogin();
   }
 
   verificaLogin() {
     this.clienteSrv.findOne({"where" : {"login" : this.cliente.login }})
       .subscribe((item:Cliente) => {
         console.log('Cliente: ' , item);
+
+        if (item.senha === this.cliente.senha) {
+          this.loginOk();
+        } else {
+          this.loginErro();
+        }
+        
       })
+  }
+
+  loginOk() {
+    console.log('Login ok');
+  }
+  loginErro() {
+    console.log('Login com erro');
+    this.dialogRef.close();
   }
 }
