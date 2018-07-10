@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Cliente, ClienteApi } from '../shared/sdk';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
 
 
   constructor(public dialogRef: MatDialogRef<LoginComponent>,
-              private clienteSrv: ClienteApi,
+              private clienteSrv: ClienteApi,private router:Router,
     @Inject(MAT_DIALOG_DATA) public data: any) {
 
   }
@@ -35,6 +36,8 @@ export class LoginComponent implements OnInit {
 
         if (item.senha === this.cliente.senha) {
           this.loginOk();
+          this.dialogRef.close();
+          this.router.navigate(['/principal']);
         } else {
           this.loginErro();
         }
@@ -47,6 +50,6 @@ export class LoginComponent implements OnInit {
   }
   loginErro() {
     console.log('Login com erro');
-    this.dialogRef.close();
+
   }
 }

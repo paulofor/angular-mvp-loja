@@ -19,6 +19,7 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 import { ClienteApi, ProdutoApi, ItemPedidoApi, PedidoApi } from './shared/sdk';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { HomeComponent } from './home/home.component';
+import { Principal2Component } from './principal2/principal2.component';
 
 
 
@@ -27,7 +28,8 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     PrincipalComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    Principal2Component
   ],
   imports: [
     BrowserModule,
