@@ -17,13 +17,17 @@ import { InternalStorage } from './shared/sdk/storage/storage.swaps';
 
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ClienteApi, ProdutoApi, ItemPedidoApi, PedidoApi } from './shared/sdk';
-import { RouterModule, Routes } from '@angular/router';
+import { AppRoutingModule } from './app-routing/app-routing.module';
+import { HomeComponent } from './home/home.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     PrincipalComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +42,7 @@ import { RouterModule, Routes } from '@angular/router';
     MatButtonModule,
     HttpClientModule ,
     AppRoutingModule
+
   ],
   providers: [
     ClienteApi,
