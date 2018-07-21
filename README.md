@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
+## Situação Atual 
+
+Comecei o desenvolvimento de uma nova versão em 21-07-2018, nesse projeto existe uma mistura entre outros dois o Adm-Loja e o Representacao-Produto. Fica como referência.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
