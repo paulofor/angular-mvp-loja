@@ -20,6 +20,8 @@ import { ClienteApi, ProdutoApi, ItemPedidoApi, PedidoApi } from './shared/sdk';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { Principal2Component } from './principal2/principal2.component';
+import { rotasPrincipal } from './rotas-principal';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -43,7 +45,7 @@ import { Principal2Component } from './principal2/principal2.component';
     ReactiveFormsModule,
     MatButtonModule,
     HttpClientModule ,
-    AppRoutingModule
+    RouterModule.forRoot(rotasPrincipal)
 
   ],
   providers: [

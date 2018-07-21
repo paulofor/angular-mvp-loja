@@ -18,9 +18,8 @@ export class LoginComponent implements OnInit {
   }
 
 
-  constructor(public dialogRef: MatDialogRef<LoginComponent>,
-              private clienteSrv: ClienteApi,private router:Router,
-    @Inject(MAT_DIALOG_DATA) public data: any) {
+  constructor(
+    private clienteSrv: ClienteApi, private router: Router) {
 
   }
 
@@ -30,18 +29,18 @@ export class LoginComponent implements OnInit {
   }
 
   verificaLogin() {
-    this.clienteSrv.findOne({"where" : {"login" : this.cliente.login }})
-      .subscribe((item:Cliente) => {
-        console.log('Cliente: ' , item);
+    this.clienteSrv.findOne({ "where": { "login": this.cliente.login } })
+      .subscribe((item: Cliente) => {
+        console.log('Cliente: ', item);
 
         if (item.senha === this.cliente.senha) {
           this.loginOk();
-          this.dialogRef.close();
+          //this.dialogRef.close();
           this.router.navigate(['/principal']);
         } else {
           this.loginErro();
         }
-        
+
       })
   }
 
